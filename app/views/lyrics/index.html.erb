@@ -1,0 +1,31 @@
+<h1>Listing lyrics</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Lyricist</th>
+      <th>Composer</th>
+      <th>Singer</th>
+      <th>Content</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lyrics.each do |lyric| %>
+      <tr>
+        <td><%= link_to lyric.title, lyric %></td>
+        <td><%= lyric.lyricist %></td>
+        <td><%= lyric.composer %></td>
+        <td><%= lyric.singer %></td> 
+        <td><%= simple_format(lyric.content.slice(0, 100))  %></td>
+        <td><%= link_to 'Destroy', lyric, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lyric', new_lyric_path %>

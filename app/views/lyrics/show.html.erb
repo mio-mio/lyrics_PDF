@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lyric.title %>
+</p>
+
+<p>
+  <strong>Lyricist:</strong>
+  <%= @lyric.lyricist %>
+</p>
+
+<p>
+  <strong>Composer:</strong>
+  <%= @lyric.composer %>
+</p>
+
+<p>
+  <strong>Singer:</strong>
+  <%= @lyric.singer %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= simple_format(@lyric.content) %>
+</p>
+
+<%= link_to 'Edit', edit_lyric_path(@lyric) %> |
+<%= link_to 'Back', lyrics_path %>|
+
+<!-- PDF作成 */ -->
+<%= link_to "PDFで表示",
+              lyric_path(@lyric, format: "pdf"),
+              :class => 'btn btn-primary' %>
